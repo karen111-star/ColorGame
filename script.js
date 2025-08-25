@@ -1,4 +1,4 @@
-const colors = ['Rojo', 'Verde', 'Azul', 'Amarillo', 'Morado', 'Naranja', 'Rosa', 'Cian', 'Gris'];
+const colors = ['Rojo', 'Verde', 'Azul', 'Amarillo', 'Morado', 'Naranja', 'Rosa', 'Acua', 'Gris'];
 const colorValues = {
   Rojo: '#e74c3c',
   Verde: '#2ecc71',
