@@ -1,42 +1,87 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(ellipse at top, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
   text-align: center;
+  padding: 30px 15px;
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#mensaje {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #ffffff;
+  text-shadow: 0 0 5px #0ff;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+#color-name {
+  font-size: 2.2em;
+  margin: 20px 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+}
+
+#circle-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.circle:hover {
+  transform: scale(1.05);
+}
+
+.circle:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.circle.neon {
+  box-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor;
+}
+
+#score {
+  font-size: 1.3em;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  backdrop-filter: blur(3px);
+}
+
+footer {
+  font-size: 0.9em;
+  opacity: 0.6;
+  margin-top: 30px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .circle {
+    width: 70px;
+    height: 70px;
   }
-  to {
-    transform: rotate(360deg);
+
+  #color-name {
+    font-size: 1.8em;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  #mensaje {
+    font-size: 1.1em;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }
