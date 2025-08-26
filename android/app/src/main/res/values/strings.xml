@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">colorgame</string>
+    <string name="title_activity_main">colorgame</string>
+    <string name="package_name">com.colorgame.app</string>
+    <string name="custom_url_scheme">com.colorgame.app</string>
+</resources>
