@@ -22,6 +22,7 @@ function App() {
   const [correctColor, setCorrectColor] = useState('');
   const [options, setOptions] = useState([]);
   const [textColor, setTextColor] = useState('#ffffff');
+  const [message, setMessage] = useState(''); // 👈 Nuevo estado para el mensaje
 
   const shuffle = (array) => [...array].sort(() => 0.5 - Math.random());
 
@@ -39,9 +40,11 @@ function App() {
   const handleClick = (color) => {
     if (color === correctColor) {
       setScore(prev => prev + 1);
+      setMessage('');
     } else {
-      alert('¡Fallaste! Puntuación final: ' + score);
+      setMessage('¡Perdiste!');
       setScore(0);
+      setTimeout(() => setMessage(''), 2000); // Quitar mensaje después de 2s
     }
     generateGame();
   };
@@ -57,7 +60,7 @@ function App() {
           margin: 0;
           padding: 0;
           font-family: 'Poppins', sans-serif;
-          background: radial-gradient(ellipse at top, #0f2027, #203a43, #2c5364);
+          background: radial-gradient(ellipse at top, #0f2027, #322355ff, #1c1650ff);
           color: #ffffff;
           text-align: center;
           padding: 30px 15px;
@@ -72,11 +75,7 @@ function App() {
           text-shadow: 0 0 5px #0ff;
         }
 
-        #color-name {
-          font-size: 2.2em;
-          margin: 20px 0;
-          text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
-        }
+      
 
         #circle-container {
           display: flex;
@@ -106,7 +105,7 @@ function App() {
         }
 
         .circle.neon {
-          box-shadow: 0 0 15px currentColor, 0 0 30px currentColor, 0 0 45px currentColor;
+          box-shadow: 0 0 9px currentColor, 0 0 15px currentColor, 0 0 15px currentColor;
         }
 
         #score {
@@ -117,6 +116,14 @@ function App() {
           border-radius: 10px;
           display: inline-block;
           backdrop-filter: blur(3px);
+        }
+
+        .lost {
+          font-size: 1.4em;
+          color: #ff4d4d;
+          font-weight: bold;
+          margin-top: 20px;
+          text-shadow: 0 0 10px red, 0 0 20px red;
         }
 
         footer {
@@ -160,7 +167,11 @@ function App() {
         </div>
 
         <p id="score">Puntos: {score}</p>
-        <footer>Hecho con ❤️</footer>
+
+        {/* 👇 Mostrar el mensaje si existe */}
+        {message && <p className="lost">{message}</p>}
+
+  
       </div>
     </>
   );
